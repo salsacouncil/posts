@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+        .posts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .post {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .post h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .post p {
+            flex-grow: 1;
+        }
+        .post button {
+            align-self: flex-end;
+            background-color: #6200ea;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .post button:hover {
+            background-color: #3700b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Posts</h1>
+    <div class="posts-container" id="posts-container">
+        <!-- Posts will be inserted here by JavaScript -->
+    </div>
+
+    <script>
+        const posts = [
+            {
+                title: "WeMod Pro Patch",
+                description: "Portable Version"
+            },
+            {
+                title: "How do torrents work",
+                description: "Very easy explanation for starters."
+            },
+        ];
+
+        function createPost(post) {
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `
+                <h2>${post.title}</h2>
+                <p>${post.description}</p>
+                <button>Read More</button>
+            `;
+            return postElement;
+        }
+
+        const postsContainer = document.getElementById('posts-container');
+        posts.forEach(post => {
+            postsContainer.appendChild(createPost(post));
+        });
+    </script>
+</body>
+</html>
