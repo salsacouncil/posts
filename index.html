@@ -44,53 +44,34 @@
         .post p {
             flex-grow: 1;
         }
-        .post button {
+        .post a {
             align-self: flex-end;
             background-color: #6200ea;
             color: #fff;
             border: none;
             padding: 10px;
             border-radius: 5px;
-            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
         }
-        .post button:hover {
+        .post a:hover {
             background-color: #3700b3;
         }
     </style>
 </head>
 <body>
     <h1>Posts</h1>
-    <div class="posts-container" id="posts-container">
-        <!-- Posts will be inserted here by JavaScript -->
+    <div class="posts-container">
+        <div class="post">
+            <h2>WeMod Pro Patch</h2>
+            <p>Portable Version.</p>
+            <a href="post1.html">Read More</a>
+        </div>
+        <div class="post">
+            <h2>How do torrents work</h2>
+            <p>simplified explanation for starters.</p>
+            <a href="post2.html">Read More</a>
+        </div>
     </div>
-
-    <script>
-        const posts = [
-            {
-                title: "WeMod Pro Patch",
-                description: "Portable Version"
-            },
-            {
-                title: "How do torrents work",
-                description: "Very easy explanation for starters."
-            },
-        ];
-
-        function createPost(post) {
-            const postElement = document.createElement('div');
-            postElement.className = 'post';
-            postElement.innerHTML = `
-                <h2>${post.title}</h2>
-                <p>${post.description}</p>
-                <button>Read More</button>
-            `;
-            return postElement;
-        }
-
-        const postsContainer = document.getElementById('posts-container');
-        posts.forEach(post => {
-            postsContainer.appendChild(createPost(post));
-        });
-    </script>
 </body>
 </html>
